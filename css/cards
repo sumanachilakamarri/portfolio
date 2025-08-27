@@ -1,0 +1,60 @@
+/* Project Card Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+
+/* Card Styling */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Media Block (Dynamic Colors) */
+.card-media {
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Gradients per Project */
+.p1 { background: linear-gradient(135deg, #60a5fa, #2563eb); }
+.p2 { background: linear-gradient(135deg, #a78bfa, #7c3aed); }
+.p3 { background: linear-gradient(135deg, #f472b6, #db2777); }
+.p4 { background: linear-gradient(135deg, #34d399, #059669); }
+.p5 { background: linear-gradient(135deg, #fcd34d, #f59e0b); }
+.p6 { background: linear-gradient(135deg, #38bdf8, #0284c7); }
+
+/* Content Area */
+.card-content {
+  padding: 16px;
+}
+
+.card-content h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.card-content .tag {
+  font-size: 14px;
+  font-weight: 600;
+  color: #9ca3af;
+}
