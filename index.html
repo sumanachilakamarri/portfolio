@@ -81,15 +81,47 @@
 
     .card { position: relative; border-radius: 20px; overflow: hidden; background: linear-gradient(180deg, rgba(17,24,39,.9), rgba(17,24,39,.75)); border: 1px solid rgba(148,163,184,.18); box-shadow: var(--card-shadow); transform-style: preserve-3d; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease; }
     .card:hover { box-shadow: 0 16px 40px rgba(0,0,0,.55); border-color: rgba(167,139,250,.35); background: linear-gradient(180deg, rgba(17,24,39,1), rgba(17,24,39,.85)); }
-    .card-media { position: relative; padding-top: 62%; background-size: cover; background-position: center; filter: saturate(.9) contrast(1.05); }
+
+    /* media becomes an animated gradient (no images) */
+    .card-media { position: relative; padding-top: 62%; filter: saturate(.95) contrast(1.02); }
+    .card-media::before {
+      content: "";
+      position: absolute; inset: 0; border-radius: inherit;
+      background: linear-gradient(135deg, var(--g1), var(--g2));
+      background-size: 200% 200%;
+      background-position: 40% 60%;
+      z-index: 0;
+    }
+    .card-media::after {
+      content: "";
+      position: absolute; inset: -150% -40%;
+      background: linear-gradient(120deg, rgba(255,255,255,0) 45%, rgba(255,255,255,.18) 50%, rgba(255,255,255,0) 55%);
+      transform: translateX(-60%);
+      pointer-events: none;
+      z-index: 2; border-radius: inherit;
+    }
     .card:hover .card-media { filter: saturate(1.05) contrast(1.08); }
+    .card:hover .card-media::before { background-position: 60% 40%; }
+    .card:hover .card-media::after { animation: sheen 900ms ease forwards; }
+    @keyframes sheen { to { transform: translateX(120%); } }
+
+    /* keep overlay + text above gradient */
+    .card-media > * { position: relative; z-index: 1; }
     .card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(2,6,23,.75), rgba(2,6,23,.0) 60%); }
     .card-body { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px; }
     .card h3 { margin: 0 0 6px; font-size: 18px; letter-spacing: .2px; }
-    .card .tag { font-size: 13px; color: #9aa7bd; }
+    .card .tag { font-size: 13px; color: #cbd5e1; }
+
+    /* agreeable, brand-aligned color pairs */
+    .p1 .card-media { --g1:#60a5fa; --g2:#2563eb; } /* sky → indigo */
+    .p2 .card-media { --g1:#a78bfa; --g2:#7c3aed; } /* violet → purple */
+    .p3 .card-media { --g1:#f472b6; --g2:#db2777; } /* rose → fuchsia */
+    .p4 .card-media { --g1:#34d399; --g2:#059669; } /* mint → emerald */
+    .p5 .card-media { --g1:#fcd34d; --g2:#f59e0b; } /* amber → orange */
+    .p6 .card-media { --g1:#38bdf8; --g2:#0284c7; } /* aqua → deep sky */
 
     /* =====================
-       EXPERIENCE (new)
+       EXPERIENCE
        ===================== */
     .experience { margin-top: 36px; }
     .exp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
@@ -170,8 +202,8 @@
     <section class="container" id="projects">
       <h2 class="section-title">Featured Projects</h2>
       <div class="projects">
-        <a class="card tilt" href="portfolio_detail.html" aria-label="EMS Response Times in NYC">
-          <div class="card-media" style="background-image:url('images/project-1.jpg')">
+        <a class="card tilt p1" href="portfolio_detail.html" aria-label="EMS Response Times in NYC">
+          <div class="card-media">
             <div class="card-overlay"></div>
             <div class="card-body">
               <h3>EMS Response Times in NYC</h3>
@@ -180,8 +212,8 @@
           </div>
         </a>
 
-        <a class="card tilt" href="airline_mgmt.html" aria-label="Airline Management Systems">
-          <div class="card-media" style="background-image:url('images/project-3.jpg')">
+        <a class="card tilt p2" href="airline_mgmt.html" aria-label="Airline Management Systems">
+          <div class="card-media">
             <div class="card-overlay"></div>
             <div class="card-body">
               <h3>Airline Management Systems</h3>
@@ -190,8 +222,8 @@
           </div>
         </a>
 
-        <a class="card tilt" href="spotify_ml.html" aria-label="Analyzing Key Features of Spotify’s Top Songs">
-          <div class="card-media" style="background-image:url('images/project-4.jpg')">
+        <a class="card tilt p3" href="spotify_ml.html" aria-label="Analyzing Key Features of Spotify’s Top Songs">
+          <div class="card-media">
             <div class="card-overlay"></div>
             <div class="card-body">
               <h3>Analyzing Key Features of Spotify’s Top Songs</h3>
@@ -200,8 +232,8 @@
           </div>
         </a>
 
-        <a class="card tilt" href="hobbyhomies.html" aria-label="HobbyHomies UX/UI Design">
-          <div class="card-media" style="background-image:url('images/project-6.jpg')">
+        <a class="card tilt p4" href="hobbyhomies.html" aria-label="HobbyHomies UX/UI Design">
+          <div class="card-media">
             <div class="card-overlay"></div>
             <div class="card-body">
               <h3>HobbyHomies: UX/UI Design</h3>
@@ -210,22 +242,22 @@
           </div>
         </a>
 
-        <a class="card tilt" href="dda.html" aria-label="Decision & Data Analytics">
-          <div class="card-media" style="background-image:url('images/project-7.jpg')">
+        <a class="card tilt p5" href="dda.html" aria-label="Decision & Data Analytics">
+          <div class="card-media">
             <div class="card-overlay"></div>
             <div class="card-body">
-              <h3>Reducing Error in High‑Volume Recruitment</h3>
+              <h3>Reducing Error in High-Volume Recruitment</h3>
               <div class="tag">Decision & Data Analytics</div>
             </div>
           </div>
         </a>
 
-        <a class="card tilt" href="health_info.html" aria-label="Health Informatics with FHIR">
-          <div class="card-media" style="background-image:url('images/project-8.jpg')">
+        <a class="card tilt p6" href="health_info.html" aria-label="Health Informatics with FHIR">
+          <div class="card-media">
             <div class="card-overlay"></div>
             <div class="card-body">
               <h3>VIP: Health Informatics using FHIR</h3>
-              <div class="tag">Front & Back‑end App Work</div>
+              <div class="tag">Front & Back-end App Work</div>
             </div>
           </div>
         </a>
@@ -254,7 +286,7 @@
         <article class="exp-card">
           <div class="exp-logo"><img src="images/coke.jpg" alt="Coca-Cola logo" onerror="this.style.display='none'; this.parentElement.textContent='Coke';"/></div>
           <div class="exp-body">
-            <h3>Data Science Intern — The Coca‑Cola Company</h3>
+            <h3>Data Science Intern — The Coca-Cola Company</h3>
             <div class="exp-meta">Summer 2024 · Analytics Enablement · Atlanta, GA</div>
             <div class="exp-pills"><span class="pill">Power BI</span><span class="pill">UX for Analytics</span><span class="pill">Analytics Enablement</span></div>
           </div>
@@ -264,7 +296,7 @@
           <div class="exp-body">
             <h3>Graduate Research Assistant</h3>
             <div class="exp-meta">2023–2024 · MultiSense.Studio Lab · Atlanta, GA</div>
-            <div class="exp-pills"><span class="pill">Computer Vision</span><span class="pill">Front & Back‑end</span><span class="pill">Inclusive Design</span></div>
+            <div class="exp-pills"><span class="pill">Computer Vision</span><span class="pill">Front & Back-end</span><span class="pill">Inclusive Design</span></div>
           </div>
         </article>
       </div>
@@ -277,7 +309,7 @@
         </div>
         <div class="copy">
           <h2 id="about-heading">About Me</h2>
-          <p>I’m driven by the blend of analytical rigor and thoughtful design. I love finding signal in noise—then presenting it so teams can act confidently. I’ve built dashboards, ML models, and end‑to‑end experiences that prioritize clarity, impact, and collaboration.</p>
+          <p>I’m driven by the blend of analytical rigor and thoughtful design. I love finding signal in noise—then presenting it so teams can act confidently. I’ve built dashboards, ML models, and end-to-end experiences that prioritize clarity, impact, and collaboration.</p>
           <p>Currently a M.S. Analytics student, focusing on Computational Data Science methods & exploring research in data-driven design techniques.</p>
         </div>
       </div>
@@ -309,4 +341,17 @@
 
     // Micro tilt effect on project cards
     const tiltEls = document.querySelectorAll('.tilt');
-    tiltEls.fo
+    tiltEls.forEach(card => {
+      const damp = 18; // lower = more tilt
+      card.addEventListener('pointermove', (e) => {
+        const r = card.getBoundingClientRect();
+        const cx = r.left + r.width / 2; const cy = r.top + r.height / 2;
+        const dx = (e.clientX - cx) / r.width; const dy = (e.clientY - cy) / r.height;
+        card.style.transform = `rotateX(${(-dy * damp)}deg) rotateY(${(dx * damp)}deg)`;
+      });
+      card.addEventListener('pointerleave', () => { card.style.transform = 'rotateX(0) rotateY(0)'; });
+    });
+
+  </script>
+</body>
+</html>
