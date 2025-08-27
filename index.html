@@ -113,12 +113,22 @@
     .card .tag { font-size: 13px; color: #cbd5e1; }
 
     /* agreeable, brand-aligned color pairs */
-    .p1 .card-media { --g1:#60a5fa; --g2:#2563eb; } /* sky → indigo */
-    .p2 .card-media { --g1:#a78bfa; --g2:#7c3aed; } /* violet → purple */
-    .p3 .card-media { --g1:#f472b6; --g2:#db2777; } /* rose → fuchsia */
-    .p4 .card-media { --g1:#34d399; --g2:#059669; } /* mint → emerald */
-    .p5 .card-media { --g1:#fcd34d; --g2:#f59e0b; } /* amber → orange */
-    .p6 .card-media { --g1:#38bdf8; --g2:#0284c7; } /* aqua → deep sky */
+  /* Agreeable, modern gradients (muted + cohesive) */
+    .p1 .card-media { --g1: hsl(217 72% 68%); --g2: hsl(227 58% 54%); } /* cool blue */
+    .p2 .card-media { --g1: hsl(248 45% 72%); --g2: hsl(240 36% 56%); } /* indigo slate */
+    .p3 .card-media { --g1: hsl(284 46% 74%); --g2: hsl(270 42% 58%); } /* orchid */
+    .p4 .card-media { --g1: hsl(160 38% 62%); --g2: hsl(160 34% 46%); } /* soft mint */
+    .p5 .card-media { --g1: hsl(42 64% 70%);  --g2: hsl(35 58% 54%); }  /* warm sand/amber */
+    .p6 .card-media { --g1: hsl(196 52% 66%); --g2: hsl(204 48% 52%); } /* muted teal/sky */
+
+    /* Slightly darker overlay for consistent legibility on muted colors */
+    .card-overlay { background: linear-gradient(to top, rgba(2,6,23,.78), rgba(2,6,23,0) 60%); }
+    
+    /* Tone down contrast a touch on hover for that “calm premium” look */
+    .card:hover .card-media { filter: saturate(1.02) contrast(1.04); }
+    .projects .card-media { filter: saturate(.9) contrast(1.02); }
+
+
 
     /* =====================
        EXPERIENCE
