@@ -61,46 +61,46 @@
     .hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 28px; align-items: center; }
 
     /* Highlight new site link */
-.site-note{
-  display:inline-block;
-  margin-right:.5rem;
-  padding:.25rem .6rem;
-  border-radius:999px;
-  font-weight:800;
-  letter-spacing:.6px;
-  font-size:.75rem;
-  color:#0b1020;
-  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
-  box-shadow: 0 8px 24px rgba(167,139,250,.18);
-}
-
-.site-link{
-  display:inline-flex;
-  align-items:center;
-  gap:.5rem;
-  padding:.65rem .85rem;
-  border-radius:14px;
-  border:1px solid rgba(255,255,255,.12);
-  background: rgba(255,255,255,.04);
-  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease;
-  font-weight:700;
-  color: #e5e7eb;
-}
-
-.site-link:hover{
-  transform: translateY(-1px);
-  border-color: rgba(167,139,250,.35);
-  background: rgba(255,255,255,.06);
-  box-shadow: 0 14px 34px rgba(0,0,0,.35);
-}
-
-.site-url{
-  font-weight:600;
-  color: #c7d2fe;
-  opacity:.95;
-  border-bottom: 1px dashed rgba(199,210,254,.55);
-}
-
+  .site-note{
+    display:inline-block;
+    margin-right:.5rem;
+    padding:.25rem .6rem;
+    border-radius:999px;
+    font-weight:800;
+    letter-spacing:.6px;
+    font-size:.75rem;
+    color:#0b1020;
+    background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+    box-shadow: 0 8px 24px rgba(167,139,250,.18);
+  }
+  
+  .site-link{
+    display:inline-flex;
+    align-items:center;
+    gap:.5rem;
+    padding:.65rem .85rem;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,.12);
+    background: rgba(255,255,255,.04);
+    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease;
+    font-weight:700;
+    color: #e5e7eb;
+  }
+  
+  .site-link:hover{
+    transform: translateY(-1px);
+    border-color: rgba(167,139,250,.35);
+    background: rgba(255,255,255,.06);
+    box-shadow: 0 14px 34px rgba(0,0,0,.35);
+  }
+  
+  .site-url{
+    font-weight:600;
+    color: #c7d2fe;
+    opacity:.95;
+    border-bottom: 1px dashed rgba(199,210,254,.55);
+  }
+  
 
     .headline { font-size: clamp(28px, 4vw, 48px); line-height: 1.05; font-weight: 800; margin: 0 0 14px; }
     .headline .accent { background: linear-gradient(90deg, var(--accent-1), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
@@ -239,13 +239,12 @@
     <section class="container hero-grid" id="home">
       <div>
         <h1 class="headline">Hi, I'm <span class="accent">Sumana!</span></h1>
-      <p class="subhead">
-        <span class="site-note">NEW:</span>
-        <a class="site-link" href="https://sumanachil-oss.github.io/portfolio/" target="_blank" rel="noopener">
-          Visit my new portfolio site →
-          <span class="site-url">sumanachil-oss.github.io/portfolio</span>
-        </a>
-      </p>
+        <p class="subhead">
+          <span class="site-note">NEW</span>
+          <a class="site-link" href="https://sumanachil-oss.github.io/portfolio/" target="_blank" rel="noopener">
+            My portfolio is live: <span class="site-url">sumanachil-oss.github.io/portfolio</span> →
+          </a>
+        </p>
       </div>
       <aside>
         <div class="hero-card" aria-hidden="true">
